@@ -3,15 +3,14 @@ package application;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -19,12 +18,14 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-
-public class siteIHM extends Application {
-
+/*
+ * This class will be inherited by different exercise/correction pages
+ */
+public class ExercisePage extends Application{
+	
 	@Override
 	public void start(Stage arg0) throws Exception {
-
+		// TODO Auto-generated method stub
 		BorderPane root = new BorderPane();
 		VBox exercices = new VBox(30);
 		exercices.setPadding(new Insets(100,20,150,20));
@@ -163,128 +164,20 @@ public class siteIHM extends Application {
       
 		//-----------------------------------------------------------------
 							//Page Centrale
-        
-        
-		Label titrePage = new Label("Exercices d'application");
-		titrePage.setFont(Font.font("Arial Narrow",FontWeight.BOLD,25));
-		Label sousTitre1 = new Label("STRUCTURE FONDAMENTALE DU LANGAGE");
-		sousTitre1.setFont(Font.font("Arial Narrow",FontWeight.BOLD,18));
-		Label sousTitre2 = new Label("DEMARRAGE");
-		Label sousTitre3 = new Label("ALGORITHME DE CESAR");
-		Label sousTitre4 = new Label("RECONNAISSANCE DE MAINS DANS UN JEU DE POKER");
-		Label sousTitre5 = new Label("POKER FERME");
-		Label sousTitre6 = new Label("LES METHODES");
-		Label sousTitre7 = new Label("LAMBDA");
-		sousTitre7.setFont(Font.font("Arial Narrow",FontWeight.BOLD,18));
-		sousTitre6.setFont(Font.font("Arial Narrow",FontWeight.BOLD,18));
-		sousTitre5.setFont(Font.font("Arial Narrow",FontWeight.BOLD,18));
-		sousTitre4.setFont(Font.font("Arial Narrow",FontWeight.BOLD,18));
-		sousTitre3.setFont(Font.font("Arial Narrow",FontWeight.BOLD,18));
-		sousTitre2.setFont(Font.font("Arial Narrow",FontWeight.BOLD,18));
+        VBox pane11 = new VBox();
+        TextArea codeArea = new TextArea();
+		Label executionSuccess =new Label();
+		TextArea terminal = new TextArea();
+		codeArea.setStyle("-fx-background-color: BLACK");
 		
-		VBox pane = new VBox(9);
-		pane.setStyle("-fx-background-color: #0E336A;");
-		pane.setPadding(new Insets(50));
-		pane.getChildren().addAll(titrePage, sousTitre1);
-		addSeparatorLine(pane);
-		pane.getChildren().addAll(sousTitre2);
-		addSeparatorLine(pane);
-		pane.getChildren().addAll(sousTitre3);
-		addSeparatorLine(pane);
-		pane.getChildren().addAll(sousTitre4);
-		addSeparatorLine(pane);
-		pane.getChildren().addAll(sousTitre5);
-		addSeparatorLine(pane);
-		pane.getChildren().addAll(sousTitre6);
-		addSeparatorLine(pane);
-		pane.getChildren().addAll(sousTitre7);
-
-		titrePage.setTextFill(Color.WHITE);
-		sousTitre1.setTextFill(Color.WHITE);
-		sousTitre2.setTextFill(Color.WHITE);
-		sousTitre3.setTextFill(Color.WHITE);
-		sousTitre4.setTextFill(Color.WHITE);
-		sousTitre5.setTextFill(Color.WHITE);
-		sousTitre6.setTextFill(Color.WHITE);
-		sousTitre7.setTextFill(Color.WHITE);
-		
+		pane11.getChildren().addAll(codeArea,executionSuccess,terminal);
 		
 
 		
-				//------------Boutons------------\\
 		
 		
-		Button[] boutonsExos = new Button[20];
-		HBox[] hBoxExos = new HBox[10];
+		
 
-		for (int i1 = 0; i1 < hBoxExos.length; i1++) {
-		    hBoxExos[i1] = new HBox(); // ligne pour initialiser les HBox
-		    hBoxExos[i1].setSpacing(10);
-		    for (int j = 0; j < 2; j++) {
-		        int index = i1 * 2 + j;
-		        boutonsExos[index] = new Button();
-		        boutonsExos[index].setPrefSize(120, 30);
-		        hBoxExos[i1].getChildren().add(boutonsExos[index]);
-		    }
-		}
-
-		
-		boutonsExos[0].setText("Exercice 1");
-		boutonsExos[1].setText("Correction 1");
-		boutonsExos[2].setText("Exercice 2");
-		boutonsExos[3].setText("Correction 2");
-		boutonsExos[4].setText("Exercice 3");
-		boutonsExos[5].setText("Correction 3");
-		boutonsExos[6].setText("Exercice 4");
-		boutonsExos[7].setText("Correction 4");
-		boutonsExos[8].setText("Exercice 5");
-		boutonsExos[9].setText("Correction 5");
-		boutonsExos[10].setText("Exercice 6");
-		boutonsExos[11].setText("Correction 6");
-		boutonsExos[12].setText("Exercice 7");
-		boutonsExos[13].setText("Correction 7");
-		boutonsExos[14].setText("Exercice 8");
-		boutonsExos[15].setText("Correction 8");
-		boutonsExos[16].setText("Exercice 9");
-		boutonsExos[17].setText("Correction 9");
-		boutonsExos[18].setText("Exercice 10");
-		boutonsExos[19].setText("Correction 10");
-		/*exo1.setStyle( "-fx-background-color: beige;");
-		correction1.setStyle( "-fx-background-color: beige;");
-		exo1.setFont(Font.font("Verdana",FontWeight.BOLD,16));
-		correction1.setFont(Font.font("Verdana",FontWeight.BOLD,16));*/
-		
-		for (Button bouton : boutonsExos) {
-		    bouton.setTextFill(Color.web("#F4E1B9"));
-		}
-		
-		VBox pane1 = new VBox(9);
-		pane1.setStyle("-fx-background-color: #0E336A;");
-		pane1.setPadding(new Insets(50));
-		pane1.getChildren().addAll(titrePage,sousTitre1,hBoxExos[0],sousTitre2,hBoxExos[1],hBoxExos[2],hBoxExos[3],sousTitre3,hBoxExos[4],sousTitre4,hBoxExos[5],sousTitre5,hBoxExos[6],sousTitre6,hBoxExos[7],sousTitre7,hBoxExos[8],hBoxExos[9]);
-		
-		VBox pane11 = new VBox(9);
-		pane11.setStyle("-fx-background-color: #0E336A;");
-		pane11.setPadding(new Insets(50));
-		pane11.getChildren().addAll(titrePage, sousTitre1);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(hBoxExos[0]);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(hBoxExos[1], hBoxExos[2]);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(hBoxExos[3], sousTitre2);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(hBoxExos[4]);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre3, hBoxExos[5]);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre4, hBoxExos[6]);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre5, hBoxExos[7]);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre6, hBoxExos[8]);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre7, hBoxExos[9]);
 		
 		
 		//---------------------------------------------------------------\\
@@ -301,20 +194,10 @@ public class siteIHM extends Application {
 		pane.getChildren().add(justForFocus);
 		justForFocus.requestFocus();*/
 		arg0.setScene(scene);
-		arg0.show();
-		scene.getStylesheets().add(getClass().getResource("siteIHM.css").toExternalForm());}
-
-		
-	private static void addSeparatorLine(VBox container) {
-	    Separator separator = new Separator();
-	    separator.setPrefWidth(1300);
-	    separator.setPrefHeight(1);
-	    separator.setStyle("-fx-background-color: #C19233;");
-	    container.getChildren().add(separator);
-	}
-	
-	
+		arg0.show();}
 	public static void main(String...args) {
 		launch(args);
 	}
 }
+
+
