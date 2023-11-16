@@ -164,12 +164,18 @@ public class ExercisePage extends Application{
       
 		//-----------------------------------------------------------------
 							//Page Centrale
-        VBox pane11 = new VBox();
+        VBox pane11 = new VBox(5);
         TextArea codeArea = new TextArea();
 		Label executionSuccess =new Label();
 		TextArea terminal = new TextArea();
-		codeArea.setStyle("-fx-background-color: BLACK");
-		
+		String terminalStyle="-fx-control-inner-background:#000000; -fx-font-family: Consolas; -fx-highlight-fill: #00ff00; -fx-highlight-text-fill: #000000; -fx-text-fill: #00ff00; ";
+		String codeAreaStyle="-fx-control-inner-background:#000000; -fx-font-family: Consolas; -fx-highlight-fill: #00ff00; -fx-highlight-text-fill: #000000; -fx-text-fill: white; ";
+
+		terminal.setStyle(terminalStyle);
+		codeArea.setStyle(codeAreaStyle);
+		ExerciseCodeContainer allExos = new ExerciseCodeContainer();
+		codeArea.setText(allExos.get(0));
+		codeArea.setPrefHeight(450);
 		pane11.getChildren().addAll(codeArea,executionSuccess,terminal);
 		
 
