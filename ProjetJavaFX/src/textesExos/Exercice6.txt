@@ -1,0 +1,56 @@
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.Arrays;
+public class Joueur{
+    
+ 
+
+    public static void main(String ...args){
+        CardValue[] cards=CardValue.getRandomHand();
+
+        showHand(cards);
+        
+        int maxCardValue=0;
+        CardValue cardValue=null;
+        
+        System.out.println("Nous avons " + maxCardValue + " " + cardValue);
+        
+              
+  
+    }
+    
+       enum CardValue{
+        ACE,
+        KING,
+        QUEEN,
+        JACK,
+        TEN,
+        NINE,
+        EIGHT,
+        SEVEN;
+        
+        private static Random rand = new Random();
+        
+        public static CardValue drawRandom(){
+            
+             return (CardValue) (CardValue.class.getEnumConstants()[rand.nextInt(CardValue.class.getEnumConstants().length)]);
+        }
+
+        public static CardValue[] getRandomHand(){
+            CardValue[] cartes=new CardValue[5];
+            cartes[0]=CardValue.drawRandom();
+            cartes[1]=CardValue.drawRandom();
+            cartes[2]=CardValue.drawRandom();
+            cartes[3]=CardValue.drawRandom();
+            cartes[4]=CardValue.drawRandom();
+            return cartes;
+        }
+        
+    }
+    
+    private static void showHand(CardValue[] hand){
+        System.out.println(Arrays.stream(hand).map(e -> e.name()).collect(Collectors.joining(" ")));
+    }
+    
+
+}

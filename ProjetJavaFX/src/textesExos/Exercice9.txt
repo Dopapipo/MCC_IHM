@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
+
+public class Main {
+
+    private static final double epislon = 1e-15;
+
+    public static void main(String... args) {
+
+
+        Collection<Character> sentence = new ArrayList<>();
+        for (char c : "ceci est une phrase".toCharArray()) {
+            sentence.add(c);
+        }
+        int key = 23;
+        char initialValue = 'a';
+        UnaryOperator<Character> lowerCase = c -> Character.toLowerCase(c);
+        Function<Character, Integer> rebase = c -> c.charValue() - initialValue;
+        UnaryOperator<Integer> shift = i -> i + key;
+        UnaryOperator<Integer> modulo = i -> i % 26;
+        Function<Integer, Character> base = i -> (char) (i + initialValue);
+        Function<Character, Character> cesar = lowerCase.andThen(rebase.andThen(shift.andThen(modulo.andThen(base))));
+
+
+        sentence.forEach(c -> System.out.print(Character.isAlphabetic(c) ? cesar.apply(c) : c));
+
+
+    }
+
+}

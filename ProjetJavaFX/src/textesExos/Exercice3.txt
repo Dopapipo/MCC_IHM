@@ -1,0 +1,58 @@
+/*Ecrivez une classe appellée AscenseurTolbiac, elle devra contenir les méthodes suivantes:
+
+    monter # l’Ascenseur monte du nombre d’étage désiré
+    descendre # l’Ascenseur descend du nombre d’étage désiré
+    getEtage() # renvoi l'étage courrant
+*/
+
+
+
+public class Ascenseur {
+
+  private final int ETAGE_MAX = 22;
+  private final int ETAGE_MIN = 0;
+
+  // INSERER LES ATTRIBUTS ICI
+
+  private int etageCourant = 0;
+
+  // INSERER LES METHODES ICI
+
+  public void monter(int deltaEtage) {
+
+  }
+
+  public void descendre(int deltaEtage) {
+
+  }
+
+
+  public String getEtage() {
+    return "";
+  }
+
+  public static void main(String[] args) {
+
+
+    Ascenseur ascenseur = new Ascenseur();
+    System.out.println(ascenseur.getEtage());
+
+    ascenseur.monter(5);
+    System.out.println(ascenseur.getEtage());
+
+    ascenseur.descendre(3);
+    System.out.println(ascenseur.getEtage());
+
+    ascenseur.descendre(10);
+    System.out.println(ascenseur.getEtage());
+
+    ascenseur.monter(50);
+    System.out.println(ascenseur.getEtage());
+
+
+
+
+  }
+
+
+}

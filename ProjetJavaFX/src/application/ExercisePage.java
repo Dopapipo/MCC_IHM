@@ -173,8 +173,7 @@ public class ExercisePage extends Application{
 
 		terminal.setStyle(terminalStyle);
 		codeArea.setStyle(codeAreaStyle);
-		ExerciseCodeContainer allExos = new ExerciseCodeContainer();
-		codeArea.setText(allExos.get(0));
+		codeArea.setText(ExerciseCodeContainer.lireExercice(1));
 		codeArea.setPrefHeight(450);
 		pane11.getChildren().addAll(codeArea,executionSuccess,terminal);
 		

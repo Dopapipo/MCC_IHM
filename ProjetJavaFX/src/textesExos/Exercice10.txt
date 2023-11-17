@@ -1,0 +1,22 @@
+public class BlockCode {
+  public static void main(String...args) {
+
+    int i;
+
+    for (int i = 5; i < 12; i++) {
+      int j = i;
+    }
+
+    System.out.println(j);
+
+    int i;
+    int j = 0;
+    while (i > 10) {
+      j += i;
+      i++;
+    }
+
+    System.out.println(j);
+
+  }
+}

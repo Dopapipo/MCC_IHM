@@ -1,0 +1,90 @@
+public class PrimitiveTypes {
+
+
+  public static void main(String...args) {
+
+
+    //edit after this
+    boolean responsePuzzle1 = ?;
+    boolean responsePuzzle2 = ?;
+    boolean responsePuzzle3 = ?;
+    boolean responsePuzzle4 = ?;
+    boolean responsePuzzle5 = ?;
+    boolean responsePuzzle6 = ?;
+    //don't edit after this
+
+
+    testpuzzle(responsePuzzle1,
+      responsePuzzle2,
+      responsePuzzle3,
+      responsePuzzle4,
+      responsePuzzle5,
+      responsePuzzle6);
+
+
+  }
+
+  public static boolean puzzle1() {
+    byte b = (byte) Byte.MAX_VALUE;
+    short s = (short) b;
+    int i = (int) s;
+    long l = (long) i;
+    return b == l;
+  }
+
+  public static boolean puzzle2() {
+    int i = (int) Integer.MAX_VALUE;
+    short s = (short) i;
+    long l = (long) s;
+    return i == l;
+  }
+
+  public static boolean puzzle3() {
+    float f = (float) Float.MAX_VALUE;
+    double d = (double) f;
+    return d == f;
+
+  }
+
+  public static boolean puzzle4() {
+    float f = (float) 100.00;
+    int i = (int) f;
+    double d = (double) i;
+    return d == f;
+
+  }
+
+  public static boolean puzzle5() {
+    return 'a' == 'b' + 1;
+  }
+  public static boolean puzzle6() {
+    char c = (char)
+    'a';
+    float f = (float)(c + 1);
+    char d = (char) f;
+    return d == 'b';
+  }
+
+
+
+
+
+  public static void testpuzzle(boolean p1,
+    boolean p2,
+    boolean p3,
+    boolean p4,
+    boolean p5,
+    boolean p6) {
+    System.out.println(puzzle1() == p1 ? "bonne réponse" : "mauvaise réponse");
+    System.out.println(puzzle2() == p2 ? "bonne réponse" : "mauvaise réponse");
+    System.out.println(puzzle3() == p3 ? "bonne réponse" : "mauvaise réponse");
+    System.out.println(puzzle4() == p4 ? "bonne réponse" : "mauvaise réponse");
+    System.out.println(puzzle5() == p5 ? "bonne réponse" : "mauvaise réponse");
+    System.out.println(puzzle6() == p6 ? "bonne réponse" : "mauvaise réponse");
+
+
+
+  }
+
+
+}
