@@ -1,0 +1,30 @@
+.root{ /* fond de la scene */
+	-fx-background-color:rgb(23, 61, 228);/* couleur de fond, un peu visible dans les coins sous la VBox et la ButtonBar. darkkhaki est une des nombreuses couleurs prédéfinies  */ 
+}
+
+
+
+VBox{
+	-fx-background-color:rgb(255, 239, 214);
+	-fx-border-color:rgba(164, 85, 6, 0.597);
+	-fx-border-radius:0 0 10 10; 
+	-fx-background-radius:0 0 10 10;
+}
+
+Button{
+	-fx-background-color:rgb(252, 203, 140);/*couleur désignée par ses composantes rouge, vert, bleu */
+	-fx-text-fill:rgb(0, 0, 0);/*couleur du texte 
+	-fx-rotate:-30;/* inclinaison en degrés, compté à partir de l'horizontale dans le sens des aiguilles d'une montre */
+	-fx-font-weight:bold;
+	
+}
+
+Button:hover{ /*pseudo-classe désignant un bouton sur lequel passe la souris */
+	-fx-effect:dropshadow(gaussian,rgb(248, 141, 192),10,0,0,0);/* effet d'ombre */
+    -fx-effect:innershadow(three-pass-box,rgb(248, 141, 192),10,0,0,0);/* ombrage intérieur */
+}
+
+
+Button:active { /* pseudo-classe désignant un bouton sur lequel on clique */
+    -fx-effect:innershadow(three-pass-box,rgb(248, 141, 192),10,0,0,0);/* ombrage intérieur */
+}

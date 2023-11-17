@@ -1,17 +1,28 @@
 package application;
+import java.io.File;
+import java.io.InputStream;
 
+/*
+ * TODO: ->Ajouter des boutons avec les images associées dans chaque HBox (sablier...)
+ * ->Ajouter des EventHandlers à tous les boutons : les boutons exo x et correction x font passer à une vue ExercisePage associée
+ * ->Les boutons sablier etc... changent d'image en fonction de l'image qu'ils ont déjà dans les HBox des boutons exos
+ * ->Ajouter les hyperlinks qui renvoient vers les cours associés dans les HBox dex boutons exos
+ * ->Ajouter les images à l'entête
+ * ->Ajouter une ScrollBar pour l'élément central
+ */
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -33,7 +44,7 @@ public class ExerciseSelectionPage extends Application {
 		//--------------------Labels liste exos-------------------\\
 		
 		/*
-		VBox exercices1 = new VBox(10); // 10 est l'espace vertical entre les éléments
+		VBox exercices1 = new XVBox(10); // 10 est l'espace vertical entre les éléments
 		exercices1.setPadding(new Insets(100, 20, 150, 20));
 		exercices1.setStyle("-fx-background-color: #0E336A;");
 		
@@ -112,7 +123,8 @@ public class ExerciseSelectionPage extends Application {
         GridPane entete = new GridPane();
         entete.setStyle("-fx-background-color: #C19233;");
         structure.add(entete, 0, 0, 3, 1); // Utilisez trois colonnes
-
+        entete.setMaxWidth(Double.MAX_VALUE);
+        arg0.setResizable(false);
         HBox logo = new HBox();
         Label logoText = new Label("Miage Code Crafting");
         logo.getChildren().addAll(logoText);
@@ -216,19 +228,32 @@ public class ExerciseSelectionPage extends Application {
 		
 		Button[] boutonsExos = new Button[20];
 		HBox[] hBoxExos = new HBox[10];
-
+		Button[] boutonsFeedback = new Button[hBoxExos.length];
+		Class<?> clazz = this.getClass();
+		String chemin = "/images/sablier-1-noir.png";
+		InputStream input = clazz.getResourceAsStream(chemin);
+		Image sablierBlanc = new Image(input);
+		ImageView sablierBlancView = new ImageView(sablierBlanc);
+		sablierBlancView.setImage(sablierBlanc);
+		sablierBlancView.setCache(true);
+		sablierBlancView.setFitWidth(30);
+		sablierBlancView.setFitHeight(20);
 		for (int i1 = 0; i1 < hBoxExos.length; i1++) {
 		    hBoxExos[i1] = new HBox(); // ligne pour initialiser les HBox
 		    hBoxExos[i1].setSpacing(10);
+		    boutonsFeedback[i1] = new Button();
+			boutonsFeedback[i1].setGraphic(sablierBlancView);
+			boutonsFeedback[i1].setPrefSize(30, 20);
+
+		    
 		    for (int j = 0; j < 2; j++) {
 		        int index = i1 * 2 + j;
 		        boutonsExos[index] = new Button();
 		        boutonsExos[index].setPrefSize(120, 30);
 		        hBoxExos[i1].getChildren().add(boutonsExos[index]);
 		    }
+		    hBoxExos[i1].getChildren().add(boutonsFeedback[i1]);
 		}
-
-		
 		boutonsExos[0].setText("Exercice 1");
 		boutonsExos[1].setText("Correction 1");
 		boutonsExos[2].setText("Exercice 2");
@@ -266,25 +291,22 @@ public class ExerciseSelectionPage extends Application {
 		VBox pane11 = new VBox(9);
 		pane11.setStyle("-fx-background-color: #0E336A;");
 		pane11.setPadding(new Insets(50));
-		pane11.getChildren().addAll(titrePage, sousTitre1);
+		pane11.getChildren().addAll(titrePage);
 		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(hBoxExos[0]);
+		pane11.getChildren().addAll(sousTitre1,hBoxExos[0]);
 		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(hBoxExos[1], hBoxExos[2]);
+		pane11.getChildren().addAll(sousTitre2,hBoxExos[1], hBoxExos[2],hBoxExos[3]);
 		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(hBoxExos[3], sousTitre2);
+		pane11.getChildren().addAll(sousTitre3,hBoxExos[4]);
 		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(hBoxExos[4]);
+		pane11.getChildren().addAll( sousTitre4,hBoxExos[5]);
 		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre3, hBoxExos[5]);
+		pane11.getChildren().addAll(sousTitre5, hBoxExos[6]);
 		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre4, hBoxExos[6]);
+		pane11.getChildren().addAll(sousTitre6, hBoxExos[7]);
 		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre5, hBoxExos[7]);
+		pane11.getChildren().addAll(sousTitre7, hBoxExos[8],hBoxExos[9]);
 		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre6, hBoxExos[8]);
-		addSeparatorLine(pane11);
-		pane11.getChildren().addAll(sousTitre7, hBoxExos[9]);
 		
 		
 		//---------------------------------------------------------------\\

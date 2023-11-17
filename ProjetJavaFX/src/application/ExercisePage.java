@@ -178,6 +178,7 @@ public class ExercisePage extends Application{
 		codeArea.setPrefHeight(450);
 		pane11.getChildren().addAll(codeArea,executionSuccess,terminal);
 		
+		
 
 		
 		

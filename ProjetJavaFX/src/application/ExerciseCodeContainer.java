@@ -1,15 +1,11 @@
 package application;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ExerciseCodeContainer {
 	List<String> exerciseTexts;
+	List<String> correctionTexts;
 	public ExerciseCodeContainer() {
 		exerciseTexts = new ArrayList<>();
 		//initialiser tous les textes à afficher par défaut dans la console
@@ -34,9 +30,9 @@ public class ExerciseCodeContainer {
 				+ "    System.out.println(j);\r\n"
 				+ "\r\n"
 				+ "  }\r\n"
-				+ "}";		
+				+ "}";	
+		
 		this.exerciseTexts.add(exo1);
-		//faire pareil pour tous les exos
 	}
 	public String get(int i) {
 		return this.exerciseTexts.get(i);
